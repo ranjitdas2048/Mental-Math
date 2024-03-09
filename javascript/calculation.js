@@ -92,22 +92,24 @@ function mul() {
 function div() {
     if (opraTion === "div") {
         symbol.innerText = "÷"
-        result = firstValue / secondValue;
-        form.addEventListener("keyup", (event)=>{
+        result = Math.round((firstValue/secondValue) * 100)/100;
+        
+        form.addEventListener("keyup", (event)=>{ 
             event.preventDefault()
             if(Number(event.target.value) === result){
-                console.log(result)
-                
+
                 valueSetter(level);
-                result = firstValue / secondValue;
+                result =  Math.round((firstValue/secondValue) * 100)/100;;
                 form.reset();
+                
             }
         })
     }
-    console.log(result)
+    
 }
 
 add();
 sub();
 mul();
 div();
+
